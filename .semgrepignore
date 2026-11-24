@@ -1,0 +1,10 @@
+# Exclude upstream Drupal core & scaffolded router
+web/core/
+web/.ht.router.php
+
+# Exclude third-party dependencies & build artifacts
+vendor/
+web/modules/contrib/
+web/themes/contrib/
+web/profiles/contrib/
+node_modules/

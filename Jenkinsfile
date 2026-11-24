@@ -4,13 +4,6 @@ pipeline {
 
     stages {
 
-        stage('Checkout') {
-            steps {
-                git branch: 'main',
-                    url: 'https://github.com/Michael-portfolio780/aws-lift-and-shift-CICD.git'
-            }
-        }
-
         stage('Verify Repository') {
             steps {
                 sh '''
@@ -18,6 +11,7 @@ pipeline {
 
                     test -f drupal11/composer.json
                     test -f drupal11/composer.lock
+                    test -f sonar-project.properties
 
                     echo "Drupal repository verified."
                 '''
@@ -95,6 +89,35 @@ pipeline {
                         artifacts: 'reports/semgrep-report.json',
                         allowEmptyArchive: true
                     )
+                }
+            }
+        }
+
+        stage('SonarQube Code Analysis') {
+            steps {
+                script {
+                    def scannerHome = tool 'SonarScanner'
+
+                    withSonarQubeEnv('SonarQube') {
+                        sh """
+                            set -eu
+
+                            echo "Starting SonarQube analysis..."
+
+                            ${scannerHome}/bin/sonar-scanner \
+                                -Dproject.settings=sonar-project.properties
+
+                            echo "SonarQube analysis submitted."
+                        """
+                    }
+                }
+            }
+        }
+
+        stage('SonarQube Quality Gate') {
+            steps {
+                timeout(time: 10, unit: 'MINUTES') {
+                    waitForQualityGate abortPipeline: true
                 }
             }
         }

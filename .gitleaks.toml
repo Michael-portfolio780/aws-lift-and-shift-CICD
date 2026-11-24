@@ -2,13 +2,11 @@
 [extend]
 useDefault = true
 
-# Drupal core test fixtures: reviewed generic-api-key false positives.
-# Keep this allowlist restricted to these exact test files.
 [[rules]]
 id = "generic-api-key"
 
     [[rules.allowlists]]
-    description = "Reviewed Drupal core test fixtures"
+    description = "Reviewed Drupal core test fixtures and CKEditor bundled assets"
     paths = [
         '''^drupal11/web/core/modules/big_pipe/tests/src/Unit/Render/FiberPlaceholderTest\.php$''',
         '''^drupal11/web/core/modules/big_pipe/tests/modules/big_pipe_test/src/BigPipePlaceholderTestCases\.php$''',
@@ -17,11 +15,9 @@ id = "generic-api-key"
         '''^drupal11/web/core/modules/shortcut/tests/src/Kernel/ShortcutEntityLinksTest\.php$''',
         '''^drupal11/web/core/modules/system/tests/modules/render_placeholder_message_test/src/RenderPlaceholderMessageTestController\.php$''',
         '''^drupal11/web/core/modules/migrate_drupal/tests/fixtures/drupal6\.php$''',
-        '''^drupal11/web/core/tests/Drupal/KernelTests/Core/Lock/LockTest\.php$'''
-
+        '''^drupal11/web/core/tests/Drupal/KernelTests/Core/Lock/LockTest\.php$''',
         '''^drupal11/web/core/assets/vendor/ckeditor5/find-and-replace/find-and-replace\.js$''',
         '''^drupal11/web/core/assets/vendor/ckeditor5/emoji/emoji\.js$''',
         '''^drupal11/web/core/assets/vendor/ckeditor5/special-characters/special-characters\.js$''',
         '''^drupal11/web/core/assets/vendor/ckeditor5/image/image\.js$'''
     ]
-    

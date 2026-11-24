@@ -18,4 +18,10 @@ id = "generic-api-key"
         '''^drupal11/web/core/modules/system/tests/modules/render_placeholder_message_test/src/RenderPlaceholderMessageTestController\.php$''',
         '''^drupal11/web/core/modules/migrate_drupal/tests/fixtures/drupal6\.php$''',
         '''^drupal11/web/core/tests/Drupal/KernelTests/Core/Lock/LockTest\.php$'''
+
+        '''^drupal11/web/core/assets/vendor/ckeditor5/find-and-replace/find-and-replace\.js$''',
+        '''^drupal11/web/core/assets/vendor/ckeditor5/emoji/emoji\.js$''',
+        '''^drupal11/web/core/assets/vendor/ckeditor5/special-characters/special-characters\.js$''',
+        '''^drupal11/web/core/assets/vendor/ckeditor5/image/image\.js$'''
     ]
+    

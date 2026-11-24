@@ -1,0 +1,25 @@
+# Vagrant generated files
+.vagrant/
+
+# Composer dependencies
+/drupal11/vendor/
+
+# Drupal generated files
+/drupal11/web/sites/*/files/
+
+# Drupal local settings
+/drupal11/web/sites/*/settings.local.php
+/drupal11/web/sites/*/settings.php
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# IDE and operating system
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
